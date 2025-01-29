@@ -36,38 +36,48 @@ export const AuthForm = () => {
       <h1 className={css.title}>Sign Up</h1>
       <form className={css.form} onSubmit={handleSubmit}>
         <form.Field name="email">
-          {(field) => (
-            <div className={css.field}>
-              <Input
-                type="email"
-                placeholder="Email"
-                name={field.name}
-                value={field.state.value}
-                error={!!field.state.meta.errors.length}
-                onChange={(event) => field.handleChange(event.target.value)}
-                onBlur={field.handleBlur}
-              />
-              <FieldError errors={errorsToArr(field.state.meta.errors)} />
-            </div>
-          )}
+          {(field) => {
+            const schema = authValidationSchema.shape[field.name];
+
+            return (
+              <div className={css.field}>
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  name={field.name}
+                  value={field.state.value}
+                  error={!!field.state.meta.errors.length}
+                  success={schema.safeParse(field.state.value).success}
+                  onBlur={field.handleBlur}
+                  onChange={(event) => field.handleChange(event.target.value)}
+                />
+                <FieldError errors={errorsToArr(field.state.meta.errors)} />
+              </div>
+            );
+          }}
         </form.Field>
         <form.Field name="password">
-          {(field) => (
-            <div className={css.field}>
-              <Password
-                placeholder="Password"
-                name={field.name}
-                value={field.state.value}
-                error={!!field.state.meta.errors.length}
-                onChange={(e) => field.handleChange(e.target.value)}
-              />
-              <FieldRules
-                value={field.state.value}
-                errors={errorsToArr(field.state.meta.errors)}
-                rules={passwordDisplayRules}
-              />
-            </div>
-          )}
+          {(field) => {
+            const schema = authValidationSchema.shape[field.name];
+
+            return (
+              <div className={css.field}>
+                <Password
+                  placeholder="Password"
+                  name={field.name}
+                  value={field.state.value}
+                  error={!!field.state.meta.errors.length}
+                  success={schema.safeParse(field.state.value).success}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                />
+                <FieldRules
+                  value={field.state.value}
+                  errors={errorsToArr(field.state.meta.errors)}
+                  rules={passwordDisplayRules}
+                />
+              </div>
+            );
+          }}
         </form.Field>
         <ProjectButton className={css.button} type="submit">
           Sign Up

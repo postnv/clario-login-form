@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import classNames from "classnames";
 
 import css from "./styles.module.css";
@@ -10,7 +10,10 @@ type PropsType = Omit<InputProps, "type">;
 export const Password = (props: PropsType) => {
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleTogglePassword = () => setShowPassword((prev) => !prev);
+  const handleTogglePassword = (event: MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    setShowPassword((prev) => !prev);
+  };
 
   return (
     <div className={css.wrapper}>
