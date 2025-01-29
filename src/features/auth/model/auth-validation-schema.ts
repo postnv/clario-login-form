@@ -9,19 +9,15 @@ export const validationMessage = {
   max: (max: number) => `Password must not exceed ${max} characters`,
 };
 
-export const emailSchema = z.string().email(validationMessage.email);
-
-export const passwordSchema = z
-  .string()
-  .min(8, validationMessage.min(8))
-  .max(64, validationMessage.max(64))
-  .regex(/[A-Z]/, validationMessage.upperCase)
-  .regex(/\d/, validationMessage.digit)
-  .regex(/^\S*$/, validationMessage.spaces);
-
 export const authValidationSchema = z.object({
-  email: emailSchema,
-  password: passwordSchema,
+  email: z.string().email(validationMessage.email),
+  password: z
+    .string()
+    .min(8, validationMessage.min(8))
+    .max(64, validationMessage.max(64))
+    .regex(/[A-Z]/, validationMessage.upperCase)
+    .regex(/\d/, validationMessage.digit)
+    .regex(/^\S*$/, validationMessage.spaces),
 });
 
 export type AuthValidationSchemaType = z.infer<typeof authValidationSchema>;

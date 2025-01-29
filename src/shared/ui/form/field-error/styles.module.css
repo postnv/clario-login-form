@@ -1,18 +1,10 @@
 .list {
   display: flex;
   flex-direction: column;
-  color: rgba(74, 78, 113, 1);
+  color: rgba(255, 128, 128, 1);
   font-weight: 400;
   font-size: 0.8125rem;
   line-height: 1.125rem;
   margin-top: 0.5rem;
   margin-left: 1.25rem;
-}
-
-.valid {
-  color: rgba(39, 178, 116, 1);
-}
-
-.invalid {
-  color: rgba(255, 128, 128, 1);
 }

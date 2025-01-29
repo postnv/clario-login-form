@@ -1,7 +1,9 @@
 import { useState } from "react";
+import classNames from "classnames";
 
-import { Input, InputProps } from "~/src/shared/ui/input";
-import { Button } from "~/src/shared/ui/button";
+import css from "./styles.module.css";
+
+import { Input, InputProps, Button, EyeIcon } from "~/src/shared/ui";
 
 type PropsType = Omit<InputProps, "type">;
 
@@ -11,9 +13,17 @@ export const Password = (props: PropsType) => {
   const handleTogglePassword = () => setShowPassword((prev) => !prev);
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <Input {...props} type={showPassword ? "text" : "password"} />
-      <Button onClick={handleTogglePassword}>Icon</Button>
+      <Button className={css.button} onClick={handleTogglePassword}>
+        <EyeIcon
+          className={classNames(css.icon, {
+            [css.error]: props.error,
+            [css.success]: props.success,
+          })}
+          variant={showPassword ? "show" : "hide"}
+        />
+      </Button>
     </div>
   );
 };

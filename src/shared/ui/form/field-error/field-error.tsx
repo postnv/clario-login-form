@@ -1,3 +1,5 @@
+import css from "./styles.module.css";
+
 type ErrorType = string | undefined | null | false;
 
 interface PropsType {
@@ -10,7 +12,7 @@ export const FieldError = ({ errors }: PropsType) => {
   if (!hasErrors) return null;
 
   return (
-    <ul className="space-y-1">
+    <ul className={css.list}>
       {errors.map((error) => (
         <li key={`${error}`}>{error}</li>
       ))}

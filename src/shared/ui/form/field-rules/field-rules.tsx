@@ -12,7 +12,7 @@ interface PropsType {
 }
 
 export const FieldRules = ({ rules, value, errors }: PropsType) => (
-  <ul className="space-y-1">
+  <ul className={css.list}>
     {rules.map((rule) => {
       const isValid = rule.schema.safeParse(value).success;
       const hasError = errors.join(",").includes(rule.message);

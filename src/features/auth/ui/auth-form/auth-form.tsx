@@ -2,27 +2,26 @@
 
 import { useForm } from "@tanstack/react-form";
 
+import css from "./styles.module.css";
+
 import {
+  authValidationSchema,
   AuthValidationSchemaType,
-  emailSchema,
-  passwordSchema,
 } from "~/src/features/auth/model";
 import {
   Input,
   Password,
-  Button,
   FieldError,
   FieldRules,
+  ProjectButton,
 } from "~/src/shared/ui";
 import { passwordDisplayRules } from "~/src/features/auth/lib";
 import { errorsToArr } from "~/src/shared/lib";
 
 export const AuthForm = () => {
   const form = useForm<AuthValidationSchemaType>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
+    defaultValues: { email: "", password: "" },
+    validators: { onSubmit: authValidationSchema },
     onSubmit: ({ value }) => console.log(value),
   });
 
@@ -33,17 +32,18 @@ export const AuthForm = () => {
   };
 
   return (
-    <div>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <form.Field name="email" validators={{ onBlur: emailSchema }}>
+    <div className={css.wrap}>
+      <h1 className={css.title}>Sign Up</h1>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <form.Field name="email">
           {(field) => (
-            <div>
+            <div className={css.field}>
               <Input
                 type="email"
                 placeholder="Email"
                 name={field.name}
                 value={field.state.value}
+                error={!!field.state.meta.errors.length}
                 onChange={(event) => field.handleChange(event.target.value)}
                 onBlur={field.handleBlur}
               />
@@ -51,13 +51,14 @@ export const AuthForm = () => {
             </div>
           )}
         </form.Field>
-        <form.Field name="password" validators={{ onSubmit: passwordSchema }}>
+        <form.Field name="password">
           {(field) => (
-            <div>
+            <div className={css.field}>
               <Password
                 placeholder="Password"
                 name={field.name}
                 value={field.state.value}
+                error={!!field.state.meta.errors.length}
                 onChange={(e) => field.handleChange(e.target.value)}
               />
               <FieldRules
@@ -68,9 +69,9 @@ export const AuthForm = () => {
             </div>
           )}
         </form.Field>
-        <Button type="submit" disabled={!form.state.canSubmit}>
+        <ProjectButton className={css.button} type="submit">
           Sign Up
-        </Button>
+        </ProjectButton>
       </form>
     </div>
   );

@@ -1,3 +1,9 @@
-import { AuthForm } from "~/src/features/auth/ui/auth-form/auth-form";
+import css from "./styles.module.css";
 
-export const SignUpPage = () => <AuthForm />;
+import { AuthForm } from "~/src/features/auth/ui";
+
+export const SignUpPage = () => (
+  <div className={css.content}>
+    <AuthForm />
+  </div>
+);
