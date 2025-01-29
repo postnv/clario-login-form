@@ -1,7 +1,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  color: rgba(255, 128, 128, 1);
+  color: var(--error);
   font-weight: 400;
   font-size: 0.8125rem;
   line-height: 1.125rem;

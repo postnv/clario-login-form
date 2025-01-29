@@ -3,11 +3,11 @@
   max-width: 15rem;
   height: 3rem;
   border-radius: 1.875rem;
-  background: linear-gradient(rgba(112, 195, 255, 1), rgba(75, 101, 255, 1));
+  background: var(--project-btn-bg);
 
   font-weight: 700;
   font-size: 1rem;
   line-height: 1rem;
   text-align: center;
-  color: rgba(255, 255, 255, 1);
+  color: var(--white);
 }

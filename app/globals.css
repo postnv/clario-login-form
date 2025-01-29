@@ -106,7 +106,6 @@ body {
   min-height: 100vh;
   max-height: 100vh;
   height: 100%;
-  background: linear-gradient(#f4f9ff, #e0edfb);
 }
 ol,
 ul {
@@ -126,4 +125,24 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+:root {
+  --backround: linear-gradient(rgba(244, 249, 255, 1), rgba(224, 237, 251, 1));
+  --project-btn-bg: linear-gradient(
+    rgba(112, 195, 255, 1),
+    rgba(75, 101, 255, 1)
+  );
+
+  --error: rgba(255, 128, 128, 1);
+  --error-bg: rgba(253, 239, 238, 1);
+
+  --success: rgba(39, 178, 116, 1);
+  --success-bg: rgba(92, 214, 192, 0.1);
+
+  --disabled: rgba(21, 29, 81, 0.2);
+  --disabled-bg: rgba(21, 29, 81, 0.1);
+
+  --white: rgba(255, 255, 255, 1);
+  --blue: rgba(111, 145, 188, 1);
+  --dark-blue: rgba(74, 78, 113, 1);
 }

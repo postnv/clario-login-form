@@ -1,7 +1,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  color: rgba(74, 78, 113, 1);
+  color: var(--dark-blue);
   font-weight: 400;
   font-size: 0.8125rem;
   line-height: 1.125rem;
@@ -10,9 +10,9 @@
 }
 
 .valid {
-  color: rgba(39, 178, 116, 1);
+  color: var(--success);
 }
 
 .invalid {
-  color: rgba(255, 128, 128, 1);
+  color: var(--error);
 }

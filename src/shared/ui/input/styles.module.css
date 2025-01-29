@@ -2,11 +2,11 @@
   width: 100%;
   max-width: 19.5rem;
   padding: 0.8125rem 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 1);
+  border: 1px solid var(--white);
   border-radius: 0.625rem;
   outline: none;
   transition: border-color 0.3s;
-  background: rgba(255, 255, 255, 1);
+  background: var(--white);
   box-sizing: border-box;
 
   font-size: 1rem;
@@ -15,38 +15,39 @@
 }
 
 .input::placeholder {
-  color: rgba(111, 145, 188, 1);
+  color: var(--blue);
 }
 
 .input:focus {
-  border-color: rgba(111, 145, 188, 1);
+  border-color: var(--blue);
 }
 
 .input:focus::placeholder {
-  color: rgba(74, 78, 113, 1);
+  color: var(--dark-blue);
 }
 
 .input:disabled {
-  border-color: rgba(21, 29, 81, 0.2);
-  background-color: rgba(21, 29, 81, 0.1);
+  color: var(--disabled);
+  border-color: var(--disabled);
+  background-color: var(--disabled-bg);
 }
 
 .error:not(:focus) {
-  color: rgba(255, 128, 128, 1);
-  border-color: rgba(255, 128, 128, 1);
-  background-color: rgba(253, 239, 238, 1);
+  color: var(--error);
+  border-color: var(--error);
+  background-color: var(--error-bg);
 }
 
 .error::placeholder {
-  color: rgba(255, 128, 128, 1);
+  color: var(--error);
 }
 
 .success:not(:focus) {
-  color: rgba(39, 178, 116, 1);
-  border-color: rgba(39, 178, 116, 1);
-  background-color: rgba(92, 214, 192, 0.1);
+  color: var(--success);
+  border-color: var(--success);
+  background-color: var(--success-bg);
 }
 
 .success::placeholder {
-  color: rgba(39, 178, 116, 1);
+  color: var(--success);
 }

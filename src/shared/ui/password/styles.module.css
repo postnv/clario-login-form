@@ -12,15 +12,15 @@
 
 .icon path,
 .icon circle {
-  fill: rgba(111, 145, 188, 1);
+  fill: var(--blue);
 }
 
 .error path,
 .error circle {
-  fill: rgba(255, 128, 128, 1);
+  fill: var(--error);
 }
 
 .success path,
 .success circle {
-  fill: rgba(39, 178, 116, 1);
+  fill: var(--success);
 }
