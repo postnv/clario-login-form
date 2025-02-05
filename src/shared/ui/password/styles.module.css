@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+.input {
+  padding-right: 2.75rem;
+}
+
 .button {
   position: absolute;
   right: 1.25rem;

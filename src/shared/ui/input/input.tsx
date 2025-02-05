@@ -18,6 +18,7 @@ export interface InputProps {
   success?: boolean;
   error?: boolean;
   disabled?: boolean;
+  className?: string;
 }
 
 export const Input = ({
@@ -30,9 +31,10 @@ export const Input = ({
   error,
   success,
   disabled,
+  className,
 }: InputProps) => (
   <input
-    className={classNames(css.input, {
+    className={classNames(css.input, className, {
       [css.error]: !!error,
       [css.success]: !!success,
     })}

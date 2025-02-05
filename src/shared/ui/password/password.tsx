@@ -17,7 +17,11 @@ export const Password = (props: PropsType) => {
 
   return (
     <div className={css.wrapper}>
-      <Input {...props} type={showPassword ? "text" : "password"} />
+      <Input
+        {...props}
+        className={css.input}
+        type={showPassword ? "text" : "password"}
+      />
       <Button className={css.button} onClick={handleTogglePassword}>
         <EyeIcon
           className={classNames(css.icon, {

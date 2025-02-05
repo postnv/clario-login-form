@@ -13,11 +13,16 @@ export const authValidationSchema = z.object({
   email: z.string().email(validationMessage.email),
   password: z
     .string()
-    .min(8, validationMessage.min(8))
-    .max(64, validationMessage.max(64))
-    .regex(/[A-Z]/, validationMessage.upperCase)
-    .regex(/\d/, validationMessage.digit)
-    .regex(/^\S*$/, validationMessage.spaces),
+    .transform((value) => value.replaceAll(" ", ""))
+    .pipe(
+      z
+        .string()
+        .trim()
+        .min(8, validationMessage.min(8))
+        .max(64, validationMessage.max(64))
+        .regex(/[A-Z]/, validationMessage.upperCase)
+        .regex(/\d/, validationMessage.digit),
+    ),
 });
 
 export type AuthValidationSchemaType = z.infer<typeof authValidationSchema>;
